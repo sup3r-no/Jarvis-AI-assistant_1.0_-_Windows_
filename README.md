@@ -58,6 +58,8 @@ Install Blender before asking for a model or simulation. Jarvis can open Blender
 
 When the map server is ready, select the **MAP** tab and launch the tactical overlay. Jarvis opens and embeds a Microsoft Edge app window showing God's Eye View, an interactive globe with public-data layers such as flights, ships, satellites, earthquakes, and cameras. The map is bundled under `Jarvis\gods-eye-view`; its data feeds and features may require internet access. Some optional map imagery and services may also require provider keys or accounts.
 
+Thanks to: Bilawal Sidhu at https://github.com/bilawalsidhu/gods-eye-view 
+
 ## Troubleshooting
 
 - **Jarvis cannot answer:** Confirm Ollama is installed, running, and has the selected model. The app connects to `localhost:11434`.
