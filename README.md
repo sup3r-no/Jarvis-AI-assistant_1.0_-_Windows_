@@ -74,4 +74,4 @@ Thanks to: Bilawal Sidhu at https://github.com/bilawalsidhu/gods-eye-view
 
 ## Notes
 
-Voice transcription is processed locally by Vosk and is not sent to Google's speech-recognition service. The initial Vosk model download requires internet access if the model is not bundled. Full AI autocorrect and chat requests are sent to the local Ollama service; God's Eye View and some other integrations use online services and may require internet access. Review the relevant providers' terms and privacy policies before use.
+Voice transcription is processed locally by Vosk. The initial Vosk model download requires internet access if the model is not bundled. Full AI autocorrect and chat requests are sent to the local Ollama service; God's Eye View and some other integrations use online services and may require internet access. Review the relevant providers' terms and privacy policies before use.
