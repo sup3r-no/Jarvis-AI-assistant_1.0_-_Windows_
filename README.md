@@ -4,7 +4,7 @@ Windows version of Jarvis assistant previously made for android devices. Can hav
 
 This repository contains a Windows desktop assistant with a voice-and-text interface. It uses local Ollama models for conversation and command routing, Windows speech services for spoken replies, Blender for 3D scene generation, and a bundled God's Eye View globe that runs locally in a browser window. SmartThings and Home Assistant controls are optional integrations.
 
-If you just want to install, download and run the Jarvis_Setup_v1.exe
+If you just want to install, download and run the app from the latest release (located on the right side of the "<>Code"/Home page of the repository).
 
 If you would like to know how it works, you can explore the Jarvis folder and/or read the rest of this.
 
