@@ -6,7 +6,7 @@ This repository contains a Windows desktop assistant with a voice-and-text inter
 
 If you just want to install, download and run the Jarvis_Setup_v1.exe
 
-If you would like to know how it works, you can explore the Jarvis folder.
+If you would like to know how it works, you can explore the Jarvis folder and/or read the rest of this.
 
 ## Install the Windows app
 
