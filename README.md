@@ -21,11 +21,11 @@ The installer includes the God's Eye View files and installs Node.js if it is mi
 
 The Windows application source and bundled map are in `Jarvis`. Install Python, Node.js/npm, Ollama, and (for 3D generation) Blender. The map currently supports Node.js `>=24.14 <25` or `>=26 <27`; the packaged installer handles its own Node.js installation.
 
-From PowerShell, install the Python packages and start the app:
+From PowerShell, install the Python packages (including Vosk for offline speech recognition) and start the app:
 
 ```powershell
 Set-Location .\Jarvis
-python -m pip install SpeechRecognition pyttsx3 PyAudio
+python -m pip install SpeechRecognition pyttsx3 PyAudio vosk
 python .\jarvis_windows.py
 ```
 
@@ -44,9 +44,9 @@ Type a request in the field at the bottom of the **AI** tab and press **Enter** 
 
 ### Voice commands
 
-Jarvis starts listening for the wake word **“Jarvis”**. Say the wake word followed by a command, or say “Jarvis” and wait for the prompt before speaking. The default listening control is **Num Lock**: when Num Lock is on, Jarvis is muted; turn it off to listen. You can change the wake word, activation key, recognition language, and autocorrect behavior in **Settings**.
+Jarvis starts listening for the wake word **“Jarvis”**. Say the wake word followed by a command, or say “Jarvis” and wait for the prompt before speaking. The default listening control is **Num Lock**: when Num Lock is on, Jarvis is muted; turn it off to listen. **Settings** lets you change the wake word, activation key, and autocorrect behavior; the speech-recognition engine is Vosk Offline (English-US).
 
-Voice recognition uses Google's speech-recognition service, so it needs a working microphone and internet access. Typed requests do not require microphone access. Spoken responses use Windows text-to-speech.
+Voice transcription runs locally with Vosk and needs a working microphone, but not an internet connection once the speech model is available. If the installer did not include the model, Jarvis downloads the roughly 40 MB English-US model the first time it starts, so internet access is needed for that initial setup. If you enable **Full (AI + Phonetic)** autocorrect, the transcript is sent to your local Ollama service for correction; that requires Ollama to be running. Typed requests do not require microphone access. Spoken responses use Windows text-to-speech.
 
 ### Settings and optional integrations
 
@@ -67,11 +67,11 @@ Thanks to: Bilawal Sidhu at https://github.com/bilawalsidhu/gods-eye-view
 ## Troubleshooting
 
 - **Jarvis cannot answer:** Confirm Ollama is installed, running, and has the selected model. The app connects to `localhost:11434`.
-- **Voice input does not work:** Check Windows microphone permission and the selected input device; verify Num Lock is off with the default listening-key setting. Speech recognition also needs internet access.
+- **Voice input does not work:** Check Windows microphone permission and the selected input device; verify Num Lock is off with the default listening-key setting. Confirm the Vosk model exists in the app's `vosk-model` folder; if it is missing, connect to the internet so Jarvis can download it on startup.
 - **Blender commands do not run:** Install Blender and an Ollama coding model, then restart Jarvis.
 - **The MAP tab does not appear:** Wait for `npm install` and local server startup. Check that Node.js/npm are installed and available on `PATH`, and that port `4173` is available.
 - **Settings reset after closing:** This is expected; the current app keeps settings in memory for the active run only.
 
 ## Notes
 
-Jarvis runs as a local Windows application, but voice transcription is sent to Google's speech-recognition service. Ollama prompts are sent to the local Ollama service. God's Eye View connects to its configured online data providers. Review the relevant providers' terms and privacy policies before use.
+Voice transcription is processed locally by Vosk and is not sent to Google's speech-recognition service. The initial Vosk model download requires internet access if the model is not bundled. Full AI autocorrect and chat requests are sent to the local Ollama service; God's Eye View and some other integrations use online services and may require internet access. Review the relevant providers' terms and privacy policies before use.
